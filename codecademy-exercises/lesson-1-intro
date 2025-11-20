@@ -170,6 +170,10 @@ const [username, setUsername] = useState<string>('');
 First element in the bracket (username) = the state variable
 Second element in the bracket (setUsername) = the setter function
 
+#Food Lisp App
+[Try it live on expo snack!]
+https://snack.expo.dev/@ethanjg2814/food-list
+
 Why shoul dwe use expo and react native?
 
 React Native is an excellent choice when we need to:
