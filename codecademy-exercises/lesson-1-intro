@@ -1,1 +1,190 @@
+React Native is like React, but it uses native
+components instead of web components as building blocks.
+So to understand the basic structure of a React Native
+app, you need to understand some of the basic React
+concepts, like JSX, components, state, and props. 
+If you already know React, you still need to learn
+some React Native specific stuff, like the native
+components. This tutorial is aimed at all 
+audiences, whether you have React experience or not.
 
+React Native is an open-source framework developed by Meta in 2015 
+that enables developers to build mobile applications for iOS and Android
+ using JavaScript and React. It connects to the same principle as 
+ React for web development—using a declarative UI paradigm—but instead 
+ of rendering to the DOM, it renders directly to native mobile components.
+
+ Today, React Native powers apps used by millions of people worldwide. 
+ Notable companies using React Native include:
+
+Instagram
+Microsoft (Xbox, Office, Outlook, Teams)
+Amazon (Shopping, Alexa, Photos)
+Shopify
+PlayStation App
+Discord
+Codecademy Go (our learning app!)
+
+React Native renders use native UI components from each platform 
+rather than web views. This gives apps the look, feel, and performance
+ of native apps while still using JavaScript for the business logic.
+
+ In React for the web, components render to HTML elements in the browser’s DOM.
+  React Native instead renders genuine native UI components—a <View> becomes an 
+  UIView on iOS or android.view on Android. This direct mapping results in truly 
+  native interfaces.
+
+React Native also replaces CSS with JavaScript-based styling, which resembles CSS 
+syntax but is interpreted by the native rendering engine.
+
+learn once, write anywhere”
+
+Native components also vary visually across platforms because React Native maps 
+to the platform’s own UI elements. Text inputs may appear with rounded corners on 
+iOS, but are underlined on Android, and date pickers render them as wheels on iOS 
+and calendar popups on Android. These differences are intentional and enhance the 
+user experience by aligning with platform conventions.
+
+So what exactly is Expo? At its core, Expo builds on React Native. 
+Every Expo project is a React Native project with enhanced tooling and libraries.
+ Expo simplifies the developer experience while React Native handles the actual 
+ rendering to native components.
+
+ The framework’s capabilities are proven by companies like Bluesky, 
+ StubHub, and Coinbase, who use Expo to ship successful apps at scale.
+
+ React Native provides special components designed for mobile interfaces. 
+ Components like <View> and <Text> (which we’ll explore shortly) map directly to 
+ platform-specific UI elements. For example, a <View> becomes a UIView on iOS or an
+  android.view.View on Android. These mappings allow us to write JavaScript while still 
+  creating genuine native interfaces.
+
+What is <View>?
+View is a wrapper for other UI elements, allowing us to organize content and
+layouts effectively. This component functions similar to div for html development, butview is used  to 
+structure the layout of a mobile screen, and doe snot have defualt styling or text
+rendering capabilites. it is a container. 
+
+what is <Text>?
+The <Text> cmponent is reacts native way of rendering text. inreact native, all text
+must be wrapped in a <text> component. Here is an example:
+import { Text, View } from 'react-native';
+
+export default function TextExample() {
+  return (
+    <View>
+      <Text>
+        This is a sentence with <Text>nested text</Text>.
+      </Text>
+    </View>
+  );
+}
+
+What is <Image>?
+The <Image> component displasy images from various soruces such as local asses, network resoruces
+or even base64 encoded data. Here is an example:
+import { Image, View } from 'react-native';
+
+export default function ImageExample() {
+  return (
+    <View>
+      {/* Local image */}
+      <Image
+        source={require('./assets/logo.png')}
+        style={{ width: 100, height: 100 }}
+      />
+
+      {/* Network image */}
+      <Image
+        source={{ uri: 'https://example.com/image.jpg' }}
+        style={{ width: 100, height: 100 }}
+      />
+    </View>
+  );
+}
+
+What is <ScrollView>?
+<ScrollView> provides scrollable container when content exceed the 
+screen size, think of a socila media feed. <View> is more fixed, but <ScrollView> allows users to scroll though long
+list, images, or text.
+
+Here is an example:
+import { ScrollView, Text, View } from 'react-native';
+
+export default function ScrollViewExample() {
+  return (
+    <ScrollView>
+      <View style={{ height: 900}}>
+        <Text>Item 1</Text>
+      </View>
+      <View style={{ height: 900}}>
+        <Text>Item 2</Text>
+      </View>
+    </ScrollView>
+  );
+}
+
+What is <TextInput>?
+<TextInput> allows useres to enter text, simialr to an HTML input or 
+textarea and it updates as the user types. Below is an example:
+
+import { TextInput, View} from 'react-native';
+import React, { useState } from 'react';
+
+export default function TextInputExample() {
+  const [text, setText] = useState('');
+
+  return (
+    <View>
+      <TextInput
+        value={text}
+        onChangeText={setText}
+      />
+    </View>
+  );
+}
+
+What is <Button>?
+<Button> component provides a standard button that users can tap.
+when pressed, we can link it to funcitons that  perform
+actions like sending data, navigating screens, or showing alerts:
+
+This link provides the different components that react native provides:
+https://reactnative.dev/docs/components-and-apis
+
+What are state variables?
+these are variables that represent data tha t belongs to a compoennt
+and can change during its lifecycle. State variables are preserved
+by React between renders. Thye allow you to store information like
+user input, component status, or any data that  needs to change dramatically.
+
+What is a setter fuction?
+They update the state and trigger a re-render of the component. when you 
+call a setter function with a new value, react rememberes that new 
+value and re-renders the component with the updated state. 
+
+How do we use <useState> hook
+
+javascript
+const [username, setUsername] = useState<string>('');
+First element in the bracket (username) = the state variable
+Second element in the bracket (setUsername) = the setter function
+
+Why shoul dwe use expo and react native?
+
+React Native is an excellent choice when we need to:
+
+develop apps for both Android and iOS using a unified codebase
+leverage existing JavaScript/React skills
+achieve near-native performance with shorter development cycles
+build scalable apps
+Expo adds additional benefits by:
+
+eliminating the need for Xcode/Android Studio configuration
+providing access to a broad set of prebuilt native modules via the Expo SDK
+offering easy testing on physical devices
+simplifying the build and deployment process
+enabling instant Over-the-Air updates with EAS Update, delivering changes to users in seconds
+supporting integration with custom native build pipelines when needed
+
+React Native has become a mature solution for cross-platform development, with a large ecosystem of libraries and strong community support. Expo enhances this ecosystem by providing curated, tested modules and streamlined tooling that work seamlessly together. We highly recommend using Expo when getting started with React Native. It simplifies setup, accelerates development, and covers most use cases without needing native code changes.
