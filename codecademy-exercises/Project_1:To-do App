@@ -45,6 +45,14 @@ so our resutls will equal to the followign conditiaonl statement, which follows:
 condition ? expressionIfTrue : expressionIfFalse
 in other wordds, the result will equal to if the condtion is true (?) then answer yes if not( else statement interpreted as a semicolon) will be no. 
 
+What is an arrow function?
+I remember learning about this from Javascript, essentially it s a shortcut to write functions. in short the  
+the stuff on the left side of the arrow are inputs and the stuff on the right of the arrow are 
+the output or what the function does. So for examples:
+const double = x => x * 2;
+which means give me a number x and i will return double x and it will be stored as the function
+double which will be constant and cannot be changed. 
+
 
 ----------------------------------------------------------------------------------------------
 
