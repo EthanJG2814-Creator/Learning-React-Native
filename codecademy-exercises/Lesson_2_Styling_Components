@@ -1,0 +1,66 @@
+With react native the <Style> prop customizes the apperance of components y using native view properties
+ensuring the UI rendered natively on the device. Below is an exmaple of a styel property:
+<View style={{ width: 100, height: 100, backgroundColor: 'red' }} />
+this creates a red square 100 pixels wide and 100 pixels tall. 
+
+In this lesson we will be learing about several key techniques:
+1. Inline Styles: apply styles directly to componets using javascript objects.
+2. <StyleSheet>: refactor styles into resuable objects for better organiazation and performance
+3. Style Merging: Combine mulitple style objects for flexible and dynamic styling. 
+4. Flexbox and its properties—such as flexDirection, alignItems, and justifyContent—to create 
+responsive layouts and precisely control the positioning and flow of components within containers.
+
+---------
+Style Sheets 
+using the inline styling methods is great for applying just a couple of styling rules but does 
+not work for larger collection rules. To counter this problem, reacti native uses a 
+Stylesheet API.
+So how do we use a style sheet?
+well according to the react naative website: https://reactnative.dev/docs/stylesheet
+const styles = Stylesheet.create({
+  container: {
+    flex: 1,
+    padding: 24,
+    backgroundColor: '#eaeaea'
+  },
+  title: {
+    marginTop: 16,
+    paddingVertical: 8,
+    borderWidth: 4,
+    borderColor: '#20232a',
+    borderRadius: 6,
+    backgroundColor: '#61dafb',
+    color: '#20232a',
+    textAlign: 'center',
+    fontSize: 30,
+    fontWeight: 'bold',
+  },
+});
+
+what does exporting do? 
+Export allows other files to import and use code (like functions, objects, or components)
+from your file. By convention, export statements usually go at the end of the document.
+here is an exmaple:
+export const styles = StyleSheet.create({ ... });  // Export styles
+
+// In another file:
+import { styles } from './App';  // Import the exported styles
+
+What is an API? 
+An API (Applicaiton Programming Interface) is a way for apps to talk to each other and share data.
+With an API you do not have to recreate the wheel again and again, but instead you can use
+work that someone has already made and utilize it, such as a weather API and a notificaiton API.
+
+So basically, when you use export const styles, you're making your styles available for 
+other files to grab and use. But here's the thing—you don't actually need to export styles 
+if you're only using them in the same file. The course makes you export because their tests
+are in a different file and need to check if you actually created the styles. The big
+difference between JavaScript and Python is how they actually read your code. Python goes
+line by line from top to bottom, so if you try to use something before you define it, you
+get an error. JavaScript is different though—it reads your whole file first before it 
+actually runs anything. This means you can use styles.layout in your component even though 
+you defined styles way down at the bottom of the file. When JavaScript loads your code, it 
+scans everything first and says "okay, there's an App component, there's a styles object," 
+and then when React actually renders your component, the styles are already there and ready
+to use. So the order doesn't really matter like it does in Python. That's why your code works
+even though technically the styles come after you're using them.
