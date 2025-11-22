@@ -4,3 +4,125 @@ The project below is not mine and it is from codecademy.com. I am providing my a
 The Project:
 In this project, I will practice the knowledge i gained from lesson 1 and create a to do applicaiotn mobile app. The goal of this app is to where users can manage their dialy task by utilizing react native components.
 
+what is a container agian?
+These are the syntaxes that allowed us to view the text and other components on the phone screen such as:
+1. <View>
+2. <ScrollView>
+
+What is useState("")?
+this is a react functin that returns an array with two elements, its state and its setstate. 
+const [state, setState]  = useState(initalValue);
+How do these work? 
+Think of useState as a way for your app to remember things. useState("") is the inital vlaue that it will start with? State is the value you want to remember, and setState is the action of changing. In short, you create a state with a starting value, it returns the current value it has and the function it wants to update to in a destructured array.
+
+How does <TextInput> work?
+it is a controlled components in react native, meaing react controlls what appears in the input field. Essentially its a text box where users can type. 
+
+For format a TextInput, you must use the following:
+1. placeholder, the purpose of this string is to display a prompt for what the user should do
+2. value, the purpose of this string is to save the text you input. it stays even after you look away and come back. 
+3.onChangeText, the  purpose of this is to updaate the value variable by saving it.
+
+so the placeholder prompts the user to start typing, the value function displays the current input, and the onchangetext will update the input with each key stroke. 
+
+How does the <Button> function work?
+In this beginner code,there are a few compoennts that is needs to work:
+1. title, this sets the title name for the button. 
+2. onPress, essentially is the activator for what will occur when the user presses the button.
+
+
+How do Ternary operators work?
+So having experince from python and javascript, I am used to reading the following:
+if (isAdult) {
+  result = "Yes";
+} else {
+  result = "No";
+}
+
+with Ternary operators, we can use a shortcut and forget if else statements, taking up at least 5 lines of code, instead we can compact it even further. 
+result = isAdult ? "Yes" : "No";
+so our resutls will equal to the followign conditiaonl statement, which follows:
+condition ? expressionIfTrue : expressionIfFalse
+in other wordds, the result will equal to if the condtion is true (?) then answer yes if not( else statement interpreted as a semicolon) will be no. 
+
+
+----------------------------------------------------------------------------------------------
+
+Here is the code I learned to make with codecademy:
+import React,{useState} from 'react';
+import { TextInput, View, Text,Button, ScrollView} from 'react-native';
+import { TestDataButton } from './components/TestDataButton';
+
+interface Todo {
+  id: number;
+  text: string;
+  completed: boolean;
+}
+
+export default function App() {
+  const[todoText,setTodoText] = useState<String>("");
+  const[todos,setTodos] = useState<Todo[]>([]);
+
+  const addTodo = (): void => {
+    if (todoText.trim() !== '') {
+      const newTodo: Todo = {
+        id: Date.now(),
+        text: todoText,
+        completed: false
+      };
+      setTodos([...todos, newTodo]);
+      setTodoText('');
+    }
+  };
+
+  const toggleTodo = (id: number): void => {
+    setTodos(todos.map(todo => {
+      if (todo.id === id) {
+        return { ...todo, completed: !todo.completed };
+      }
+      return todo;
+    }));
+  };
+
+  return (
+    <View>
+      <Text>My To-do List</Text>
+      <TextInput
+        placeholder ="Enter a new to-do"
+        value = {todoText}
+        onChangeText = {setTodoText}
+      />
+      <Button title = "Add To-do"
+      onPress ={addTodo}
+      />
+      <TestDataButton onAddTestData={setTodos} />
+      <Text>
+        Task:
+      </Text>
+      <ScrollView style ={{height:400}}>
+        {todos.length === 0?(
+          //when array is empty reply to user
+        <Text>No to-dos yet. Add one above!</Text>
+       ) : (
+        //when  array has todos map over each to do and display it
+        todos.map((todo) => (
+          <View Key={todo.id}>
+            <Text onPress={() => toggleTodo(todo.id)}>
+              {todo.completed ? "x" : "O"} {todo.text}
+            </Text>
+          </View>
+        ))
+       )}
+      </ScrollView>
+      
+        <View>
+          <Text>
+            Total: {todos.length}
+          </Text>
+          <Text>
+            Completed: {todos.filter(todo => todo.completed).length}
+          </Text> 
+        </View>
+    </View>
+  );
+}
