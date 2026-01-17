@@ -40,7 +40,7 @@ const MAX_HEIGHT = Dimensions.get('window').height;
 export const styles = StyleSheet.create({
   layout: {
     flex: 1,
-    backgroundColor: '#e5e5e5',
+    backgroundColor: '#37789eff',
 
     // this is the highlight of the exercise
     flexDirection: 'row',

@@ -1,0 +1,73 @@
+
+
+To style our text in react native we can use these different style elements
+in react native to edit our text even further:
+- color
+- fontSize
+- fontWeight
+- textAlign
+- marginTop 
+- marginBottom
+- fontStyle
+-Text Trnasform: 
+- fontFamily
+- Padding // this create space around text!
+
+
+here is a list of fontStyle we can use:
+fontStyle: 'normal'    // default
+fontStyle: 'italic'    // slanted text
+textTransform: 'none'       // default
+textTransform: 'uppercase'  // ALL CAPS
+textTransform: 'lowercase'  // all lowercase
+textTransform: 'capitalize' // First Letter Of Each Word
+
+
+Here is a list of different fontFamily i can use: 
+fontFamily: 'Arial'
+fontFamily: 'Georgia'
+fontFamily: 'Helvetica'
+fontFamily: 'Times New Roman'
+fontFamily: 'Courier New'
+fontFamily: 'Verdana'
+fontFamily: 'Trebuchet MS'
+
+Here is a list of different textAlign I can use:
+textAlign: 'auto'       // default, aligns based on text direction
+textAlign: 'left'       // align to the left
+textAlign: 'right'      // align to the right
+textAlign: 'center'     // center the text
+textAlign: 'justify'    // spread text evenly across the line
+
+
+different use cases with fontWeight:
+fontWeight: 'normal'   // default (equivalent to 400)
+fontWeight: 'bold'     // heavy (equivalent to 700)
+fontWeight: '100'      // thin
+fontWeight: '200'      // extra light
+fontWeight: '300'      // light
+fontWeight: '400'      // normal
+fontWeight: '500'      // medium
+fontWeight: '600'      // semi bold
+fontWeight: '700'      // bold
+fontWeight: '800'      // extra bold
+fontWeight: '900'      // black (heaviest)
+
+Different use cases with padding:
+padding: 10                    // 10px on all sides
+paddingTop: 10                 // only top
+paddingBottom: 10              // only bottom
+paddingLeft: 10                // only left
+paddingRight: 10               // only right
+paddingHorizontal: 10          // left AND right
+paddingVertical: 10            // top AND bottom
+
+
+
+Here is a quick reminder what flex does again:
+flex controls how much space a component takes up relative to its siblings.
+
+<View style={{ flex: 1, backgroundColor: 'red' }} />
+<View style={{ flex: 1, backgroundColor: 'blue' }} />
+
+these two components will take up 50% of space. 
